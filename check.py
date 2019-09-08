@@ -54,8 +54,6 @@ for x in logfile_len:
 
 
 
-
-
 ''' check network card '''
 # example
 # logs = subprocess.check_output(["sudo", "apt", "update"])
