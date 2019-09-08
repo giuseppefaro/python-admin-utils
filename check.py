@@ -52,14 +52,14 @@ for x in logfile_len:
             print ("line")
 
 
-# example
-# logs = subprocess.check_output(["sudo", "apt", "update"])
-# for line in logs.splitlines():
+
 
 
 
 ''' check network card '''
-
+# example
+# logs = subprocess.check_output(["sudo", "apt", "update"])
+# for line in logs.splitlines():
 
 
 ''' user_data permissions error '''
