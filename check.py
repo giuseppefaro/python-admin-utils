@@ -1,13 +1,13 @@
 # centos 7 error check and common problem
 #
 
-import check_def
+from check_def import *
 import os
 
 # List variable
 
 log_output = ("/user_data/.tmp/check_output.txt") 
-errors_msg = ("errors.txt")  # future improvement need to be a json file
+errors_msg = ("error_list.txt")  # future improvement need to be a json file
 log_dir = ("/var/log")
 
 ## create a list of messages log file ( from here should be completed )
@@ -19,6 +19,8 @@ for file in os.listdir(log_dir):
 logs_file_len = len(logs_file)
 
 ######  ( up to here should be working )
+
+### upto this point we read the message log filename and we added them to the list logs_file, also in the variable logs_file_len we count them
 
 '''
 check logs
@@ -89,10 +91,21 @@ shell(command)
 
 ''' user_data permissions error '''
 chmod_ok = ("777")
-run_perm = shell([ ''' ls file permissions command with grep ''']) ### add command
+#### calling function from a variable
+check_perm = {'shell':[ ''' ls file permissions command with grep '''] }### add command
+fix_perm = {'shell':["chmod", "777", "/user_data"]}
 
-if run_perm != chmod_ok:
+'''  ## here an example how to call funtion from bariable
+def test():
+        print 'test'
+
+def test2():
+        print 'test2'
+
+mydict = {'test':'blabla','test2':'blabla2'} '''
+
+if check_perm != chmod_ok:
     print ("User_data permissions are wrong\n")
-    shell(["chmod", "777", "/user_data"])
+    fix_perm
 else:
     print (" User_data permission are fine")
