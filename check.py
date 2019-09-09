@@ -4,23 +4,21 @@
 from check_def import *
 import os
 
-# List variable
-
+# Global variable variable
 log_output = ("/user_data/.tmp/check_output.txt") 
 errors_msg = ("error_list.txt")  # future improvement need to be a json file
 log_dir = ("/var/log")
+##### End list of global variable
 
-## create a list of messages log file ( from here should be completed )
+# Adding to a list of all "messages" file from /var/log
+
 logs_file = []
 for file in os.listdir(log_dir):
     if file.startswith("messages"):
         logs_file.append( os.path.join(log_dir, file))
-# How many messages log file?
+# count how many messages file are in the list
 logs_file_len = len(logs_file)
 
-######  ( up to here should be working )
-
-### upto this point we read the message log filename and we added them to the list logs_file, also in the variable logs_file_len we count them
 
 '''
 check logs
@@ -47,17 +45,17 @@ for each logfile in logfile_len
             print the line and add it to the log_output
 
 '''
-# instead of while ( for x in range(logfile_len): )
+# TIPs instead of while ( for x in range(logfile_len): )
 count = 0
 while ( logs_file_len >= count ):
-    # Iterate over the lines
+#  Iterate over the lines
     for line in logs_file_len:
         for line in error_msg:
             if line == error_msg:
-             print (line)      
-             write_log(log_output,line)
-             #print if a corrispondence is found
-    count = count - 1
+                print (line)      
+                write_log(log_output,line)
+                #print if a corrispondence is found
+        #count = count - 1
 
 
 '''
