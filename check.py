@@ -1,7 +1,8 @@
 # centos 7 error check and common problem
 #
+#export PYTHONPATH=""
 
-from check_def import *
+from check_def import * 
 import os
 
 # Global variable variable
