@@ -1,0 +1,1 @@
+error_msg= ["segfault", "mce", "fallen of the bus"]

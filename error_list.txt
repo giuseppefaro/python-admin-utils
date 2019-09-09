@@ -1,0 +1,3 @@
+segfault
+mce
+fallen of the bus

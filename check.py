@@ -4,10 +4,11 @@
 
 from check_def import * 
 import os
+from error_list import *
+
 
 # Global variable variable
 log_output = ("/user_data/.tmp/check_output.txt") 
-errors_msg = ("error_list.txt")  # future improvement need to be a json file
 log_dir = ("/var/log")
 ##### End list of global variable
 
@@ -50,11 +51,11 @@ for each logfile in logfile_len
 count = 0
 while ( logs_file_len >= count ):
 #  Iterate over the lines
-    for line in logs_file_len:
-        for line in error_msg:
-            if line == error_msg:
-                print (line)      
-                write_log(log_output,line)
+    for line in logs_file:
+        for line2 in error_msg:
+            if logs_file in error_msg == True:
+                print (error_msg)      
+            write_log(log_output,line)
                 #print if a corrispondence is found
         #count = count - 1
 
