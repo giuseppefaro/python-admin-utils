@@ -1,15 +1,24 @@
 # centos 7 error check and common problem
 #
-#
-import check_def
 
+import check_def
 import os
 
-# common variable
+# List variable
 
 log_output = ("/user_data/.tmp/check_output.txt") 
-errors_msg = errors.txt  # future improvement need to be a json file
+errors_msg = ("errors.txt")  # future improvement need to be a json file
+log_dir = ("/var/log")
 
+## create a list of messages log file ( from here should be completed )
+logs_file = []
+for file in os.listdir(log_dir):
+    if file.startswith("messages"):
+        logs_file.append( os.path.join(log_dir, file))
+# How many messages log file?
+logs_file_len = len(logs_file)
+
+######  ( up to here should be working )
 
 '''
 check logs
@@ -27,17 +36,7 @@ def check():
             return True
     return False  # Because you finished the search without finding
 '''
-## create a list of messages file ( from here should be completed )
-logs = []
-for file in os.listdir("/var/log"):
-    if file.startswith("messages"):
-        # add the output to a list
-       # print(os.path.join("/mydir", file))
-        logs.append('/var/log/'file)
-# check len of logfile
-logfile_len = len([logs])
 
-######  ( up to here should be working )
 '''
 for each logfile in logfile_len
     read line in logfile[x]
@@ -47,16 +46,16 @@ for each logfile in logfile_len
 
 '''
 # instead of while ( for x in range(logfile_len): )
-i = 0
-while (count < logfile_len):
+count = 0
+while ( logs_file_len >= count ):
     # Iterate over the lines
-    for line in logs[logfile_len]:
+    for line in logs_file_len:
         for line in error_msg:
             if line == error_msg:
              print (line)      
              write_log(log_output,line)
              #print if a corrispondence is found
-    count = count + 1
+    count = count - 1
 
 
 '''
@@ -90,7 +89,7 @@ shell(command)
 
 ''' user_data permissions error '''
 chmod_ok = ("777")
-run_perm = shell([ ''' ls file permissions command with grep '''])
+run_perm = shell([ ''' ls file permissions command with grep ''']) ### add command
 
 if run_perm != chmod_ok:
     print ("User_data permissions are wrong\n")
